@@ -1,0 +1,15 @@
+%{
+ #include "parser.tab.h" 
+ 
+%}
+%option noyywrap
+%%
+[0-9]+ {yylval = atoi(yytext); return Num;}
+"+"  {return '+';}
+"-"  {return '-';}
+"*"  {return '*';}
+"/"  {return '/';}
+
+\n   {return Newline;}
+[ \t] {}
+%%
